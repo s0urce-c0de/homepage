@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Django Server",
+      "type": "shell",
+      "command": "python3 manage.py runserver",
+      "group": "none",
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": {
+          "regexp": "^.*Server.*started.*$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Starting development server at .*$",
+          "endsPattern": "^Quit the server with .*$"
+        }
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true,
+        "echo": true
+      },
+      "isBackground": true
+    }
+  ]
+}
