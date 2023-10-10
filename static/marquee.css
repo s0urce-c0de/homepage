@@ -1,0 +1,32 @@
+.marquee {
+  --gap: 2.75rem;
+  display: flex;
+  gap: var(--gap);
+  width: 100%;
+  height: fit-content;
+  overflow-x: hidden;
+}
+
+.marquee__content {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  animation: scroll 10s linear infinite;
+  animation-play-state: running;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+
+.marquee:hover .marquee__content {
+  animation-play-state: paused;
+}

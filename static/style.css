@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400");
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#content {
+  height: max-content;
+  width: 100%;
+  margin: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-align {
+  position: relative;
+  text-align: left;
+  margin: auto;
+  min-width: 30%;
+  max-width: fit-content;
+  width: unset;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
