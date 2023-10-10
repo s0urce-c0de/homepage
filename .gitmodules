@@ -1,0 +1,4 @@
+[submodule "movies/imdb-scrapper"]
+	path = movies/imdb-scrapper
+	url = https://github.com/s0urce-c0de/IMDB-Scrapper.git
+	branch = main
