@@ -2,7 +2,7 @@ from django.shortcuts import render
 from pathlib import Path
 from importlib.machinery import SourceFileLoader
 import json
-import sys
+from django.template.defaulttags import register
 
 pardir = Path(__file__).resolve().parent
 
@@ -20,7 +20,15 @@ with open(pardir / "url2imdbmovie.json") as url2moviedictfile:
   url2moviedict = json.loads(url2moviedictfile.read())
 del url2moviedictfile
 
-
+@register.filter
+def dictparse(dictionary, keys):
+    val = dictionary
+    for key in keys:
+      try:
+        val = dictionary[key]
+      except:
+        return "Error"
+    return val
 
 # Create your views here.
 def index(request):
