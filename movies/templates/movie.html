@@ -1,14 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ movie_data|dictparse:title }}</title>
-    <link rel="stylesheet" href="style.css">
+    <title>{{ movie_data.title }} - ({{ movie_data.release_date.year }})</title>
+    <link rel="stylesheet" href={% static "style.css" %}>
+    <link rel="stylesheet" href={% static "movie.css" %}>
   </head>
   <body>
-
+    <main>
+      <div class="header">
+        <h1>{{ movie_data.title }}</h1>
+        <div class="right-align">
+          Rating: {{ movie_data.rating.value }}<br>
+          Reviews: {{ movie_data.rating.reviews }}
+        </div>
+      </div>
+      <video autoplay controls>
+        {% for video in movie_data.primary_video %}
+          <source src="{{ video.video }}" lang={{ video.language }} type={{ video.mime }}>
+        {% endfor %}
+      </video>
+    </main>
   </body>
 </html>

@@ -20,16 +20,6 @@ with open(pardir / "url2imdbmovie.json") as url2moviedictfile:
   url2moviedict = json.loads(url2moviedictfile.read())
 del url2moviedictfile
 
-@register.filter
-def dictparse(dictionary, keys):
-    val = dictionary
-    for key in keys:
-      try:
-        val = dictionary[key]
-      except:
-        return "Error"
-    return val
-
 # Create your views here.
 def index(request):
   return render(request, "movies-index.html", ctx)

@@ -18,13 +18,24 @@ html, body {
   align-items: center;
 }
 
+.header {
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
 .left-align {
   position: relative;
   text-align: left;
   margin: auto;
   min-width: 30%;
-  max-width: fit-content;
-  width: unset;
+}
+
+.right-align {
+  position: relative;
+  text-align: right;
+  margin: auto;
+  min-width: 30%;
 }
 
 a {
