@@ -45,3 +45,7 @@ a:hover {
   text-decoration: underline;
   font-weight: bold;
 }
+
+div {
+  position: relative;
+}
