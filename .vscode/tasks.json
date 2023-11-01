@@ -4,7 +4,7 @@
     {
       "label": "Run Django Server",
       "type": "shell",
-      "command": "python3 manage.py runserver",
+      "command": "python3 manage.py runserver 0.0.0.0:8000",
       "group": "none",
       "problemMatcher": {
         "owner": "custom",

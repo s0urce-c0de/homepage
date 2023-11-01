@@ -10,6 +10,16 @@
   </head>
   <body>
     {% include 'header.html' %}
-    hi yo
+    <main>
+      <h1>Welcome to my favorite movies!</h1>
+      <p class="left-align">
+        Check out some of my favorite movies:
+        <ul style="width:fit-content;margin:0 auto;">
+          {% for movie in movies %}
+            <li style="margin:4px 0;display:inline-block"><a href={{ movie.url }} style="font-size:125%">{{movie.name}}</a></li><br>
+          {% endfor %}
+        </ul>
+      </p>
+    </main>
   </body>
 </html>

@@ -3,9 +3,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>it vorks</title>
+    <title>Homepage</title>
+    <link rel="shortcut icon" href={% static "favicon.gif" %}>
+    <link rel="stylesheet" href={% static "index.css" %}>
+    <link rel="stylesheet" href={% static "style.css" %}>
   </head>
   <body>
-    vorking
+    {% include "header.html" %}
+    <main>
+      <h1>Hi, I am Kanav!</h1>
+      <p style="opacity:calc(200%/3);font-size:80%;">Look up at the top to things like <a href="/movies" style="color:inherit;">my favorite movies</a></p>
+      <p class="left-align" style="font-size:150%">Hi, I am a 11 year old coder. I mainly code in <a href="https://www.python.org/">Python 3<img src={% static "python.svg" %} style="display:inline-block;max-height:24px;position:relative;top:5px;left:2px;"></a>. Sometimes I do some HTML and CSS<img src={% static "html-css.svg" %} style="display:inline-block;max-height:24px;position:relative;left:2px;">. All my code is released on my GitHub page</p>
+      <div id="socials"><a href="https://github.com/s0urce-c0de" class="social"><img src={% static "github-logo-raw/github-mark/github-mark-white.svg" %}></a></div>
+    </main>
   </body>
 </html>

@@ -12,7 +12,7 @@ ul li {
   display: inline-block;
 }
 
-ul li.bullet::before {
+ul li:not(:first-child)::before {
   display: inline-block;
   margin: 0 .5rem .2rem;
   content: "";

@@ -14,16 +14,32 @@
       <div class="header">
         <h1 class="left-align">{{ movie_data.title }}</h1>
         <div class="right-align" style="max-width:1280px;position:absolute;z-index:10;top:0;right:0">
-          Rating: {{ movie_data.rating.value }}<br>
+          Rating: {% comment %}Start of {% static "star.svg" %} %} {% endcomment %} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="yellow" style="position:relative;bottom:-3px">
+            <path d="m12 17.27 4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"/>
+          </svg>{% comment %}End of {% static "star.svg" %} %} {% endcomment %}{{ movie_data.rating.value }}<span style="opacity:calc(200%/3);height:75%">/10</span><br>
           Reviews: {{ movie_data.rating.reviews|intcomma }}
         </div>
-        <sub class="left-align"><ul><li>{{ movie_data.release_date.month|month }} {{ movie_data.release_date.day }}, {{ movie_data.release_date.year }}</li><li class="bullet">{{ movie_data.content_rating }}</li></ul></sub>
+        <sub class="left-align">
+          <ul>
+            <li>{{ movie_data.release_date.month|month }} {{ movie_data.release_date.day }}, {{ movie_data.release_date.year }}</li>
+            <li>{{ movie_data.content_rating }}</li>
+            <li>{{ movie_data.runtime.text }}</li>
+          </ul>
+        </sub>
       </div>
-      <video autoplay controls>
-        {% for video in movie_data.primary_video %}
-          <source src="{{ video.video }}" lang={{ video.language }} type={{ video.mime }}>
-        {% endfor %}
-      </video>
+      <div style="display:flex;flex-direction:row;">
+        <img src={{ movie_data.thumbnail.image }} style="max-width:26%;object-fit:contain;"/>
+        <video autoplay controls>
+          {% for video in movie_data.primary_video %}
+            <source src="{{ video.video }}" lang={{ video.language }} type={{ video.mime }}>
+          {% endfor %}
+        </video>
+      </div>
+      <div class="left-align">
+        <p style="width:70%;">
+          {{ movie_data.description|safe }}
+        </p>
+      </div>
     </main>
   </body>
 </html>

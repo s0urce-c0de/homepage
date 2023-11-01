@@ -19,10 +19,15 @@ ctx = loadctx()
 with open(pardir / "url2imdbmovie.json") as url2moviedictfile:
   url2moviedict = json.loads(url2moviedictfile.read())
 del url2moviedictfile
+with open(pardir / "moviename.json") as movienamefile:
+  movienamelist = json.loads(movienamefile.read())
+del movienamefile
 
 # Create your views here.
 def index(request):
-  return render(request, "movies-index.html", ctx)
+  lctx=loadctx()
+  lctx['movies']=movienamelist
+  return render(request, "movies-index.html", lctx)
 
 def movie(request, movie):
 
