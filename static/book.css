@@ -1,0 +1,40 @@
+html, body{
+  text-align: center;
+  justify-content: center;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+ul li {
+  display: inline-block;
+}
+
+ul li:not(:first-child)::before {
+  display: inline-block;
+  margin: 0 .5rem .2rem;
+  content: "";
+  font-size: 1rem;
+  line-height: .5rem;
+  padding: 1px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+
+#get-it-on-goodreads div {
+  width: fit-content;
+  padding: 3px 10px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+  display:flex;
+  flex-direction: row;
+  background-image: linear-gradient(#efedde, #e6e1c3);
+  /* border-radius: 7%; */
+  img {
+    border-radius: 35%;
+  }
+}

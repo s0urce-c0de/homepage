@@ -3,7 +3,6 @@ import calendar
 
 register = template.Library()
 
-
 @register.filter
 def month(month: int):
   if month == 1: return "January"

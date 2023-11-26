@@ -53,6 +53,7 @@ INSTALLED_APPS = [
   'django.contrib.humanize',
   'main',
   'movies',
+  'books',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ TEMPLATES = [
         'django.contrib.messages.context_processors.messages',
       ],
       "libraries": {
-        'stars': "templatetags.stars",
+        'stars': "templatetags.stars", # to be done
         "date": "templatetags.date",
       }
     },

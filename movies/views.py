@@ -2,7 +2,6 @@ from django.shortcuts import render
 from pathlib import Path
 from importlib.machinery import SourceFileLoader
 import json
-from django.template.defaulttags import register
 
 pardir = Path(__file__).resolve().parent
 

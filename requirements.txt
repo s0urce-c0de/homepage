@@ -1,2 +1,3 @@
 django >= 4.0.0
 -r movies/imdb-scrapper/requirements.txt
+-r books/goodreads-scrapper/requirments.txt

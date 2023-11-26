@@ -1,0 +1,41 @@
+{% load static date humanize %}
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ book_data.title }}</title>
+    <link rel="stylesheet" href={% static "style.css" %}>
+    <link rel="stylesheet" href={% static "book.css" %}>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <h1 class="left-align">{{ book_data.name }}</h1>
+        <div class="right-align" style="max-width:1280px;position:absolute;z-index:10;top:0;right:0">
+          Rating: {% comment %}Start of {% static "star.svg" %} %} {% endcomment %} <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="yellow" style="position:relative;bottom:-3px">
+            <path d="m12 17.27 4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"/>
+          </svg>{% comment %}End of {% static "star.svg" %} %} {% endcomment %}{{ book_data.rating }}<span style="opacity:calc(200%/3);font-size:90%">/5</span><br>
+          <ul><li>Ratings: {{ book_data.ratings|intcomma }}</li><li>Reviews: {{ book_data.reviews|intcomma }}</li></ul>
+        </div>
+        <h1>{{ book_data.title }}</h1>
+        <sub class="left-align">
+          <ul>
+            <li>{{ book_data.publication_date.month|month }} {{ book_data.publication_date.day }}, {{ book_data.publication_date.year }}</li>
+            <li>{{ book_data.format }}</li>
+            <li>{{ book_data.lang }}</li>
+          </ul>
+      </div>
+      <div style="display:flex;flex-direction:row;">
+        <img src={{ book_data.image }} style="max-width:26%;object-fit:contain;margin-right:4%"/>
+        <div class="left-align">
+          <p style="width:70%;">
+            {{ book_data.description|safe }}
+          </p>
+          <a id="get-it-on-goodreads" href="https://www.goodreads.com/book/show/{{ book_data.legacy_id }}"><div><img src={% static "goodreads.ico" %} /><div><sup>See it on</sup><br><h4>Goodreads</h4></div></div></a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
