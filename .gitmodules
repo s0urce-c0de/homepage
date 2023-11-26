@@ -2,3 +2,6 @@
 	path = movies/imdb-scrapper
 	url = https://github.com/s0urce-c0de/IMDB-Scrapper.git
 	branch = main
+[submodule "books/goodreads-scrapper"]
+	path = books/goodreads-scrapper
+	url = https://github.com/s0urce-c0de/goodreads-scrapper.git
