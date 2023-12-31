@@ -16,12 +16,16 @@ def loadctx():
 
 ctx = loadctx()
 
-with open(pardir / "url2book.json") as url2bookdictfile:
-  url2bookdict = json.loads(url2bookdictfile.read())
-del url2bookdictfile
-# with open(pardir / "bookname.json") as booknamefile:
-#   booknamelist = json.loads(booknamefile.read())
-# del booknamefile
+with open(pardir / "info.json") as infofile:
+  info = json.loads(infofile.read())
+del infofile
+
+book_index={}
+index=0
+for i in info:
+  book_index[i.url] = index
+  index+=1
+del i, index
 
 # Create your views here.
 # def index(request):
@@ -31,5 +35,5 @@ del url2bookdictfile
 
 def book(request, book):
   lctx = loadctx()
-  lctx['book_data'] = goodreads_scrapper._real_main(url2bookdict[book])
+  lctx['book_data'] = goodreads_scrapper._real_main(info[book_index[book]])
   return render(request, 'book.html', lctx)

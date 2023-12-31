@@ -15,7 +15,7 @@ def loadctx():
 
 ctx = loadctx()
 
-with open(pardir / "url2imdbmovie.json") as url2moviedictfile:
+with open(pardir / "url2movie.json") as url2moviedictfile:
   url2moviedict = json.loads(url2moviedictfile.read())
 del url2moviedictfile
 with open(pardir / "moviename.json") as movienamefile:
